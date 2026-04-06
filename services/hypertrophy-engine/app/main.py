@@ -2,7 +2,10 @@ from fastapi import FastAPI
 from app.schemas import VolumeInput, VolumeResponse
 from app.core.engine import WorkoutEngine
 
-app = FastAPI(title="Olympos Hypertrophy Engine", version="1.0.4")
+app = FastAPI(
+    title="Olympos Hypertrophy Engine",
+    version="1.0.4",  # <--- BURAYI "1.0.6" YAPMAN GEREKİYOR
+)
 
 @app.get("/health")
 def health_check():
