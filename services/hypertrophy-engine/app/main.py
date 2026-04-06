@@ -4,7 +4,7 @@ from app.core.engine import WorkoutEngine
 
 app = FastAPI(
     title="Olympos Hypertrophy Engine",
-    version="1.0.4",  # <--- BURAYI "1.0.6" YAPMAN GEREKİYOR
+    version="1.0.7-FINAL-TEST",  # 1.0.7 yapıyoruz ki farkı net görelim
 )
 
 @app.get("/health")
