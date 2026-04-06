@@ -1,0 +1,98 @@
+{
+  "version": 4,
+  "terraform_version": "1.14.8",
+  "serial": 18,
+  "lineage": "20744642-d34d-51c9-28a6-a2281725db67",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "helm_release",
+      "name": "hypertrophy_engine",
+      "provider": "provider[\"registry.terraform.io/hashicorp/helm\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "atomic": false,
+            "chart": "./k8s/hypertrophy-chart",
+            "cleanup_on_fail": false,
+            "create_namespace": true,
+            "dependency_update": false,
+            "description": null,
+            "devel": null,
+            "disable_crd_hooks": false,
+            "disable_openapi_validation": false,
+            "disable_webhooks": false,
+            "force_update": false,
+            "id": "hypertrophy-app",
+            "keyring": null,
+            "lint": false,
+            "manifest": null,
+            "max_history": 0,
+            "metadata": {
+              "app_version": "1.16.0",
+              "chart": "hypertrophy-chart",
+              "first_deployed": 1775506964,
+              "last_deployed": 1775506964,
+              "name": "hypertrophy-app",
+              "namespace": "olympos-platform",
+              "notes": "1. Get the application URL by running these commands:\n  export POD_NAME=$(kubectl get pods --namespace olympos-platform -l \"app.kubernetes.io/name=hypertrophy-chart,app.kubernetes.io/instance=hypertrophy-app\" -o jsonpath=\"{.items[0].metadata.name}\")\n  export CONTAINER_PORT=$(kubectl get pod --namespace olympos-platform $POD_NAME -o jsonpath=\"{.spec.containers[0].ports[0].containerPort}\")\n  echo \"Visit http://127.0.0.1:8080 to use your application\"\n  kubectl --namespace olympos-platform port-forward $POD_NAME 8080:$CONTAINER_PORT\n",
+              "revision": 1,
+              "values": "{\"image\":{\"repository\":\"ozii4333/olympos-platform\",\"tag\":\"v1.0.6\"}}",
+              "version": "0.1.0"
+            },
+            "name": "hypertrophy-app",
+            "namespace": "olympos-platform",
+            "pass_credentials": false,
+            "postrender": null,
+            "recreate_pods": false,
+            "render_subchart_notes": true,
+            "replace": false,
+            "repository": null,
+            "repository_ca_file": null,
+            "repository_cert_file": null,
+            "repository_key_file": null,
+            "repository_password": null,
+            "repository_username": null,
+            "reset_values": false,
+            "resources": null,
+            "reuse_values": false,
+            "set": null,
+            "set_list": null,
+            "set_sensitive": null,
+            "set_wo": null,
+            "set_wo_revision": null,
+            "skip_crds": false,
+            "status": "deployed",
+            "take_ownership": false,
+            "timeout": 300,
+            "timeouts": null,
+            "upgrade_install": false,
+            "values": [
+              "\"image\":\n  \"repository\": \"ozii4333/olympos-platform\"\n  \"tag\": \"v1.0.6\"\n"
+            ],
+            "verify": false,
+            "version": "0.1.0",
+            "wait": true,
+            "wait_for_jobs": false
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "repository_password"
+              }
+            ]
+          ],
+          "identity_schema_version": 0,
+          "identity": {
+            "namespace": "olympos-platform",
+            "release_name": "hypertrophy-app"
+          }
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

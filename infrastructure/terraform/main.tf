@@ -1,15 +1,33 @@
 # infrastructure/terraform/main.tf
 
+terraform {
+  required_providers {
+    helm = {
+      source  = "hashicorp/helm"
+    }
+  }
+}
+
+# Hatanın çözümü tam olarak buradaki '=' işaretinde:
+provider "helm" {
+  kubernetes = {
+    config_path = "~/.kube/config"
+  }
+}
+
 resource "helm_release" "hypertrophy_engine" {
   name       = "hypertrophy-app"
-  repository = "../../infrastructure/k8s/helm/hypertrophy-chart" # Lokal Chart yolu
-  chart      = "hypertrophy-chart"
+  chart      = "./k8s/hypertrophy-chart"
   namespace  = "olympos-platform"
   create_namespace = true
 
-  # Uygulama versiyonunu buradan yönetiyoruz (Single Source of Truth)
-  set {
-    name  = "image.tag"
-    value = "v1.0.4"
-  }
+  # Değerleri doğrudan liste içinde gönderiyoruz
+  values = [
+    yamlencode({
+      image = {
+        repository = "ozii4333/olympos-platform" # Burayı güncelledik
+        tag        = "v1.0.7"
+      }
+    })
+  ]
 }

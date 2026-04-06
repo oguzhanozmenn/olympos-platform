@@ -7,8 +7,8 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
+    - port: 80
+      targetPort: 8000  # Burayı elle 8000 yapalım ki şüphe kalmasın
       protocol: TCP
       name: http
   selector:
