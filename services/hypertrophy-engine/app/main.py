@@ -1,18 +1,18 @@
 from fastapi import FastAPI
-from app.schemas import VolumeInput, VolumeResponse
-from app.core.engine import WorkoutEngine
+from prometheus_fastapi_instrumentator import Instrumentator
 
-app = FastAPI(
-    title="Olympos Hypertrophy Engine",
-    version="1.0.7-FINAL-TEST",  # 1.0.7 yapıyoruz ki farkı net görelim
-)
+# Uygulamanı başlat
+app = FastAPI(title="Hypertrophy Engine API")
 
+# SİHİRLİ DOKUNUŞ: Prometheus metriklerini uygulamaya bağla ve /metrics endpoint'ini otomatik oluştur
+Instrumentator().instrument(app).expose(app)
+
+# Senin mevcut sistem kontrol (health-check) endpoint'in
 @app.get("/health")
 def health_check():
     return {"status": "healthy", "service": "hypertrophy-engine"}
 
-@app.post("/calculate-volume", response_model=VolumeResponse)
-def calculate_volume(data: VolumeInput):
-    volume = WorkoutEngine.calculate_total_volume(data.sets, data.reps, data.weight)
-    intensity = WorkoutEngine.calculate_intensity(data.weight, data.reps)
-    return {"total_volume": volume, "intensity_score": intensity}
+
+# --- DİĞER KODLAR ---
+# Buranın altına uygulamanın asıl işini yapan diğer tüm endpoint'lerini
+# (antrenman programı hesaplama, veritabanı işlemleri vb.) ekleyebilirsin.
