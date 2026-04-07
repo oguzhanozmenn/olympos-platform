@@ -22,5 +22,6 @@ jobs:
         with:
           context: ./services/hypertrophy-engine
           push: true
-          tags: ozii4333/olympos-platform:latest
+          tags: |
+            ozii4333/olympos-platform:latest
             ozii4333/olympos-platform:v1.0.7
