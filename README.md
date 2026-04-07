@@ -27,13 +27,13 @@ Grafana: PromQL tabanlı gelişmiş veri görselleştirme.
 1. Prometheus Hedef Keşfi (Service Discovery)
 Sistemin kalbi olan Prometheus, hypertrophy-engine-monitor tanımlaması sayesinde pod'ları otomatik olarak bulur. Aşağıdaki görselde, uygulamanın metrik uç noktasının (/metrikler) başarıyla tarandığı ve UP statüsünde olduğu görülmektedir:
 
-![Prometheus Targets Status](prometheus.png)
+![Prometheus Targets Status](./images/prometheus.png)
 Görsel: Prometheus'un uygulamayı başarıyla keşfettiği anlık durum.
 
 2. Bellek Analizi (Memory Consumption)
 Uygulamanın kaynak tüketimi, process_resident_memory_bytes metrikleri üzerinden izlenmektedir. Yapılan analizlerde uygulamanın kararlı bir şekilde ortalama 44 MB RAM tükettiği doğrulanmıştır:
 
-![Grafana Memory Usage](grafanaBellek.png)
+![Grafana Memory Usage](./images/grafanaBellek.png)
 Görsel: Uygulamanın zaman içindeki kararlı bellek kullanımı.
 
 
